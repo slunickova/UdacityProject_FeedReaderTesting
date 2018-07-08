@@ -35,13 +35,12 @@ $(function() {
             var allFeedsUrl;
             allFeeds.forEach(function(element) {
               allFeedsUrl = element.url;
-            })
-            expect(allFeedsUrl).toBeDefined();
-            //allFeeds URL.length are not 0
-            expect(allFeedsUrl.length).not.toBe(0);
-            //no other value than HTTP
-            expect(allFeedsUrl.startsWith('http')).toBe(true);
-
+              expect(allFeedsUrl).toBeDefined();
+              //allFeeds URL.length are not 0
+              expect(allFeedsUrl.length).not.toBe(0);
+              //no other value than HTTP
+              expect(allFeedsUrl.startsWith('http')).toBe(true);
+            });
          });
 
         /* A test that loops through each feed
@@ -53,12 +52,11 @@ $(function() {
            var allFeedsName;
            allFeeds.forEach(function(element) {
              allFeedsName = element.name;
-           })
-           expect(allFeedsName).toBeDefined();
-           //allFeeds names are not 0
-           expect(allFeedsName.length).not.toBe(0);
+             expect(allFeedsName).toBeDefined();
+             //allFeeds names are not 0
+             expect(allFeedsName.length).not.toBe(0);
+           });
          });
-
     });
 
     /* A test suite named "The menu" */
@@ -71,7 +69,7 @@ $(function() {
        */
        it('is hidden', function() {
          //body has class 'menu-hidden'
-         expect(bodyClass).toContain('menu-hidden');
+         expect($('body').hasClass('menu-hidden')).toBe(true);
        });
 
        /* A test that ensures the menu changes
