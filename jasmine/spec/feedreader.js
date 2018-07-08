@@ -63,7 +63,7 @@ $(function() {
 
     /* TODO: Write a new test suite named "The menu" */
     describe('The menu', function() {
-    var bodyClass = document.body.className;
+      var bodyClass = document.body.className;
       /* TODO: Write a test that ensures the menu element is
        * hidden by default. You'll have to analyze the HTML and
        * the CSS to determine how we're performing the
@@ -83,10 +83,10 @@ $(function() {
           //menu shows when icon is clicked
           var menuIcon = document.querySelector('.menu-icon-link');
           menuIcon.click();
-          expect(bodyClass).toMatch('');
+          expect($('body').hasClass('menu-hidden')).toBe(false);
           //menu hides when icon is clicked again
           menuIcon.click();
-          expect(bodyClass).toMatch('menu-hidden');
+          expect($('body').hasClass('menu-hidden')).toBe(true);
         });
     });
 
@@ -104,14 +104,14 @@ $(function() {
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
         it('are loaded', function(done) {
-          var feed = document.getElementsByClassName('feed');
+          /*var feed = document.getElementsByClassName('feed');
           var entry = document.getElementsByClassName('entry');
           //loadFeed() is called
-         /* var lf = new loadFeed(0);
+          var lf = new loadFeed(0);
           spyOn(lf, 'entries');
           expect(lf.entries).toHaveBeenCalled();*/
           //there is .entry element in .feed container
-          expect(feed.children).toBe(entry.className);
+          expect($('.feed .entry').length).not.toBe(0);
           done();
         });
     });
